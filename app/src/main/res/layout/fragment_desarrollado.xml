@@ -1,0 +1,53 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.DesarrolladoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textViewCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="26dp"
+            android:text="Desarrollado"
+            android:textSize="30dp"
+            android:layout_marginLeft="108dp"
+            android:layout_marginStart="85dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            app:srcCompat="@drawable/logopata"
+            android:layout_alignTop="@+id/textViewCorreo"
+            android:layout_toRightOf="@+id/textViewCorreo"
+            android:layout_toEndOf="@+id/textViewCorreo" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="270dp"
+            android:layout_height="500dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textViewCorreo"
+            android:layout_marginLeft="46dp"
+            android:layout_marginStart="46dp"
+            android:layout_marginTop="32dp"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:text="Desarrollado por:\n\tCristian Vaquero\n\tDaniel López\n\t\nEn un proyecto para la\nUEM - Villaviciosa" />
+
+    </RelativeLayout>
+
+</FrameLayout>

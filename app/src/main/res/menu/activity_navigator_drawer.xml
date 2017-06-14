@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/huella"
+            android:title="Mi mascota" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/servicio"
+            android:title="Servicios" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/consejo"
+            android:title="Consejos" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/tienda"
+            android:title="Contacto" />
+        <item
+            android:id="@+id/nav_calendario"
+            android:icon="@drawable/calendar"
+            android:title="Calendario" />
+        <item
+            android:id="@+id/nav_desarrollo"
+            android:icon="@drawable/pinsa"
+            android:title="Desarrollado por..." />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/tel"
+                android:title="Urgencias" />
+        </menu>
+    </item>
+
+</menu>

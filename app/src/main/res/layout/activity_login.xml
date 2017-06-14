@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.vett.cryst.vetapp.LoginActivity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo_alcarriasinfondo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/txtcorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_below="@+id/imageView"
+        android:ems="10"
+        android:hint="Dirección de correo"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/txtcontrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtcorreo"
+        android:layout_alignLeft="@+id/txtcorreo"
+        android:layout_alignRight="@+id/txtcorreo"
+        android:layout_alignStart="@+id/txtcorreo"
+        android:layout_below="@+id/txtcorreo"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtcontrasena"
+        android:layout_alignLeft="@+id/txtcontrasena"
+        android:layout_alignRight="@+id/txtcontrasena"
+        android:layout_alignStart="@+id/txtcontrasena"
+        android:layout_below="@+id/txtcontrasena"
+        android:background="@drawable/boton_amarillo"
+        android:text="Iniciar"
+        android:textColor="@color/icons" />
+
+    <TextView
+        android:id="@+id/lblregistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
+        android:textColor="#0b0080"
+        android:text="¿No tiene cuenta? !Registrate AQUÍ¡"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@+id/lblregistro"
+        android:layout_alignStart="@+id/lblregistro"
+        android:layout_below="@+id/lblregistro"
+        android:layout_marginLeft="74dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="27dp"
+        app:srcCompat="@drawable/logopata" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:srcCompat="@drawable/logopata"
+        android:layout_below="@+id/imageView2"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp" />
+
+</RelativeLayout>
