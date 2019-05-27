@@ -584,5 +584,92 @@ public class GrafoEjercicios<Clave, InfoVertice, Coste> {
 			return profundidadSucesores.longitud();
 
 	}
+	
+	
+	
+		public static int contarBucles(Grafo<String, String, Integer> grafo) {
+		Lista<String> vertice_sucesor = new Lista<String>();
+		Lista<String> vertice = new Lista<String>();
+		vertice = grafo.listaVertices();// vertices:A,B,C,D
+
+		int cont_vertices_bucle = 0;
+		for (int i = 1; i <= vertice.longitud(); i++) {
+			String aux = vertice.consultar(i);
+			vertice_sucesor = grafo.listaSucesores(aux);// sucesores de A,
+														// sucesores de B,
+														// sucesores de C,
+
+			if (vertice_sucesor.buscar(aux) != 0) {// .buscar te debuelve el int
+													// de la posicion, si te
+													// devuelve 0 es que no esta
+				cont_vertices_bucle++;
+			}
+
+		}
+		return cont_vertices_bucle;
+	}
+
+	public static int contarAislados(Grafo<String, String, Integer> grafo) {
+		Lista<String> vertice = new Lista<String>();
+		vertice = grafo.listaVertices();
+		int cont_vertices_aislados = 0;
+
+		for (int i = 1; i <= vertice.longitud(); i++) {
+			String aux = vertice.consultar(i);
+			if (grafo.gradoEntrada(aux) == 0 && grafo.gradoSalida(aux) == 0) {
+				cont_vertices_aislados++;
+			}
+		}
+
+		return cont_vertices_aislados;
+
+	}
+
+	// funcion que es un vertice fuente, es el que tiene solo salidas
+	// sumidero es el que entran todas las flechas
+	// devuelva una lista con todas las vertices fuente, y otro listado con solo
+	// los vertices sumidero
+
+	public static void contarFuentesySumideros(Grafo<String, String, Integer> grafo, Lista<String> fuentes,
+			Lista<String> sumideros) {
+		Lista<String> vertice = new Lista<String>();
+		vertice = grafo.listaVertices();
+
+		for (int i = 1; i <= vertice.longitud(); i++) {// para cada vertice del
+														// grafo
+			String aux = vertice.consultar(i);
+			if (grafo.gradoEntrada(aux) == 0 && grafo.gradoSalida(aux) > 0) {
+				fuentes.insertar(1, aux);// el insertar empieza por el primero,
+											// el que estaba el primero pasa a
+											// ser el segundo
+				// fuentes.insertar(fuentes.longitud()+1, aux);inserta por el
+				// final
+			}
+			if (grafo.gradoSalida(aux) == 0 && grafo.gradoEntrada(aux) > 0) {
+				sumideros.insertar(1, aux);// el insertar empieza por el primero
+			}
+		}
+
+	}
+
+	// funcion recorrido en anchura. mientras la cola no este vacia, voy
+	// metiendo sucesores al vertice
+	// me pasan un grafo, lista de vertices, con la cola, pregunto por sus
+	// sucesores y meto en la cola
+	public static void recorridoEnAnchura(Grafo<String, String, Integer> grafo) {
+		Lista<String> vertice = new Lista<String>();
+		vertice = grafo.listaVertices();
+		Lista<String> lista_sucesores = new Lista<String>();
+
+		for (int i = 1; i <= vertice.longitud(); i++) {// para cada vertice del
+														// grafo
+			String aux = vertice.consultar(i);
+			lista_sucesores = grafo.listaSucesores(aux);
+			for (int j = 0; j < lista_sucesores.longitud(); j++) {
+				System.out.println();
+			}
+		}
+
+	}
 
 }
