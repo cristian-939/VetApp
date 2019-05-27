@@ -671,5 +671,160 @@ public class GrafoEjercicios<Clave, InfoVertice, Coste> {
 		}
 
 	}
+	
+	public static void recAnchura (Grafo <String, String, Integer> grafo){
+		Lista<String> NoVisitados = grafo.listaVertices();
+		Lista<String> cola = new  Lista<String>();
+		String vertice;
+	
+		while(!NoVisitados.esVacia()){
+			vertice = NoVisitados.consultar(1);
+			cola.insertar(cola.longitud()+1, vertice);
+			while(!cola.esVacia()){
+				vertice = cola.consultar(1);
+				cola.borrar(1);
+				if(NoVisitados.buscar(vertice)!=0){
+					System.out.print(vertice+" - ");
+					NoVisitados.borrar(NoVisitados.buscar(vertice));
+					Lista<String> sucesores = grafo.listaSucesores(vertice);
+					for(int i=1; i<=sucesores.longitud();i++){
+						cola.insertar(cola.longitud()+1, sucesores.consultar(i));
+					}
+				}
+			}
+		}
+
+	}
+	
+	public static boolean esConexo(Grafo <String, String, Integer> grafo){
+		Lista<String> vertices = grafo.listaVertices();
+		String vertice;
+		boolean conexo = true;
+		int contador=1;
+		while(conexo==true && contador <= vertices.longitud()){
+			vertice=vertices.consultar(contador);
+			if(grafo.gradoSalida(vertice)==0 && grafo.gradoEntrada(vertice)==0){
+				
+				conexo = false;
+			}
+			contador++;
+		}
+		
+		return conexo;
+	}
+	
+	
+	public static void recA(Grafo <String, String, Integer> grafo){
+	
+	Lista<String> noVisitados = grafo.listaVertices();
+	Lista<String> cola = new Lista<String>();
+	String vertice ;
+	
+	while(noVisitados.esVacia()==false){
+		vertice = noVisitados.consultar(1);
+		cola.insertar(cola.longitud()+1, vertice);
+		
+		while(cola.esVacia()==false){
+			vertice = cola.consultar(1);
+			cola.borrar(1);
+			if(noVisitados.buscar(vertice)!=0){
+				System.out.print(vertice+"->");
+				noVisitados.borrar(noVisitados.buscar(vertice));
+				Lista<String> sucesores = grafo.listaSucesores(vertice);
+				for(int i = 1;i<=sucesores.longitud();i++){
+					cola.insertar(cola.longitud()+1, sucesores.consultar(i));
+				}
+			}
+		}
+	}
+		
+	}
+	
+	public static void recP(Grafo <String, String, Integer> grafo){
+		Lista<String> noVisitados = grafo.listaVertices();
+		String vertice;
+		
+		while(noVisitados.esVacia()==false){
+			vertice = noVisitados.consultar(1);
+			recPRec(grafo,noVisitados,vertice);
+		}
+		
+	}
+	
+	public static void recPRec(Grafo <String, String, Integer> grafo,Lista<String> noVisitados,String vertice){
+		System.out.println(vertice+"->");
+		noVisitados.borrar(noVisitados.buscar(vertice));
+		Lista<String> sucesores = grafo.listaSucesores(vertice);
+		String destino;
+		for(int i = 1;i<=sucesores.longitud();i++){
+			destino = sucesores.consultar(1);
+			if(noVisitados.buscar(destino)!=0)
+			recPRec(grafo,noVisitados,destino);
+		}
+		
+	}
+		public static int contarAislados ( Grafo<String, String, Integer> grafo){
+		Lista<String> vertices = grafo.listaVertices();
+		int aislados = 0;
+		for(int i = 1; i<=vertices.longitud();i++){
+			String v = vertices.consultar(i);
+			if(grafo.gradoEntrada(v) == 0 && grafo.gradoSalida(v)== 0){
+				aislados++;
+			}
+		}
+	return aislados;
+	}
+	
+	public static boolean compararGrafosV1(Grafo<String, String, Integer> A ,Grafo<String, String, Integer> B){
+		Lista<String> verticesA = A.listaVertices();
+		Lista<String> verticesB = B.listaVertices();
+		String vertice;
+		boolean iguales=true;
+		if(verticesA.longitud() != verticesB.longitud()){
+			iguales=false;
+		}
+		int cont = 1;
+		while(iguales==true && cont<= verticesA.longitud()){
+			if(verticesA.consultar(cont) != verticesB.consultar(cont)){
+				iguales = false;
+			}else{
+				iguales = true;
+			}
+			cont++;
+		}	
+		int contador = 1;
+		while(iguales==true && contador<=verticesA.longitud()){
+			vertice = verticesA.consultar(contador);
+			Lista<String> sucesoresA = A.listaSucesores(vertice);
+			Lista<String> sucesoresB = B.listaSucesores(vertice);
+			if(sucesoresA.longitud()!=sucesoresB.longitud()){
+				iguales=false;
+			}
+			int contador2=1;
+			while(iguales==true && contador2<=sucesoresA.longitud()){
+			if(sucesoresA.consultar(contador2) != sucesoresB.consultar(contador2)){
+				iguales = false;
+			}
+			contador2++;
+			}
+			contador++;
+		}
+		
+	return iguales;
+	}
+	
+	
+	
+	public static int contarBucles(Grafo<String, String, Integer> grafo){
+		Lista<String> vertices = grafo.listaVertices();
+		int bucles = 0;
+		for(int i = 1; i<=vertices.longitud();i++){
+			String v = vertices.consultar(i);
+			if(grafo.listaSucesores(v).buscar(v)!=0){
+				bucles++;
+			}
+		}
+		return bucles;
+	}
 
 }
